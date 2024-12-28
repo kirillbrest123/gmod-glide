@@ -137,11 +137,6 @@ function ENT:Think()
     if self.isSpinningFast ~= isSpinningFast then
         self.isSpinningFast = isSpinningFast
         self:SetModel( isSpinningFast and self.modelFast or self.modelSlow )
-        if isSpinningFast then
-            self:GetParent():CreateRotorWash()
-        else
-            self:GetParent():RemoveRotorWash()
-        end
     end
 
     local dt = FrameTime()

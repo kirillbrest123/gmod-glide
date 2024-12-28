@@ -110,31 +110,6 @@ function ENT:OnDriverExit()
     end
 end
 
--- Create a rotorwash entity
-function ENT:CreateRotorWash()
-    if IsValid( self.rotorWash ) then
-        return self.rotorWash
-    end
-
-    local rotorWash = ents.Create( "env_rotorwash_emitter" )
-    self.rotorWash = rotorWash
-    rotorWash:SetPos( self:WorldSpaceCenter() )
-    rotorWash:SetParent( self )
-    rotorWash:Spawn()
-
-    self:DeleteOnRemove( rotorWash )
-
-    return rotorWash
-end
-
--- Remove the rotorwash entity
-function ENT:RemoveRotorWash()
-    if IsValid( self.rotorWash ) then
-        self.rotorWash:Remove()
-        self.rotorWash = nil
-    end
-end
-
 local IsValid = IsValid
 local Approach = math.Approach
 local ExpDecay = Glide.ExpDecay
